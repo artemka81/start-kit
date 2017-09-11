@@ -1,0 +1,18 @@
+extends _default
+
+block vars
+  -
+    page = {
+      language: 'ru',
+      name: 'start',
+      title: 'Название страницы',
+      appTitle: 'Стартовый шаблон',
+      description: 'Стартовый шаблон для верстки'
+    }
+
+block header
+  include partials/_header.pug 
+block main
+  h1 MAIN
+block footer
+  include partials/_footer.pug

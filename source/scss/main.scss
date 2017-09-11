@@ -1,0 +1,17 @@
+// Base
+@import "_variables.scss";
+
+// Mixins
+@import "mixins/*.scss";
+
+// Partials
+@import "partials/*.scss";
+
+
+// Components
+@import "pages/**/*.scss";
+
+body{
+	background: $purple;
+	color:$white;
+}

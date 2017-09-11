@@ -1,0 +1,29 @@
+{
+  "name": "start-kit",
+  "description": "Template for front-end dev",
+  "main": "index.js",
+  "authors": [
+    "Artem Kikhtenko"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gulp",
+    "scss",
+    "pug",
+    "browser",
+    "sync"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "normalize-css": "normalize.css#^7.0.0",
+    "font-awesome": "^4.7.0"
+  }
+}

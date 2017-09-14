@@ -5,6 +5,7 @@ var sass         = require('gulp-sass');
 var sassGlob     = require('gulp-sass-glob');
 var rev          = require('gulp-rev-append');
 var autoprefixer = require("gulp-autoprefixer");
+var del          = require('del');
 
 /*---- SERVER ---- */
 gulp.task('server', function() {
@@ -47,24 +48,36 @@ gulp.task('copy:img', function(){
 		.pipe(gulp.dest('build/img'));
 });
 
-/* ---- Copy images ---- */
+/* ---- Copy js ---- */
 gulp.task('copy:js', function(){
 	return gulp.src('./source/js/main.js')
 		.pipe(gulp.dest('build/js'));
 });
 
-/* ---- Copy fonts + images ---- */
+/* ---- Copy fonts + images + js ---- */
 gulp.task('copy', gulp.parallel('copy:fonts', 'copy:img', 'copy:js'));
+
+/* ---- Delete ---- */
+gulp.task('clean', function () {
+  return del([
+    'build/css',
+    'build/img',
+    'build/js'    
+  ]);
+});
+
 
 
 /* ---- WATCH ---- */
 gulp.task('watch', function(){
 	gulp.watch('source/template/**/*.pug', gulp.series('template'));
 	gulp.watch('source/scss/**/*.scss', gulp.series('sass'));
+  gulp.watch('source/js/*.js', gulp.series('copy:js'));
 });
 
 /* ---- DEFAULT ---- */
 gulp.task('default', gulp.series(
+  'clean',
 	gulp.parallel('template', 'sass', 'copy'),
 	gulp.parallel('watch', 'server')
 	));
